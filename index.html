@@ -310,6 +310,32 @@
     text-decoration:none;
   }
   .related-cta-btn:active{ transform:scale(0.97); }
+  .vocab-list{ display:flex; flex-direction:column; gap:10px; }
+  .vocab-item{
+    background:#F7F8FA;
+    border-radius:16px;
+    padding:14px 16px;
+  }
+  .vocab-word{
+    font-size:calc(16px * var(--font-scale));
+    font-weight:800;
+    color:var(--coral-dark, #C9711A);
+    margin-bottom:4px;
+  }
+  .vocab-meaning{
+    font-size:calc(14.5px * var(--font-scale));
+    color:var(--ink);
+    line-height:1.6;
+    margin-bottom:4px;
+  }
+  .vocab-hanja{
+    font-size:calc(13px * var(--font-scale));
+    color:var(--mint-dark);
+    background:var(--mint-soft);
+    display:inline-block;
+    padding:3px 10px;
+    border-radius:100px;
+  }
   .qa-item{ border:2px solid var(--mint-soft); border-radius:16px; margin-bottom:10px; overflow:hidden; }
   .qa-q{
     display:flex; align-items:center; gap:10px; width:100%; text-align:left;
@@ -459,6 +485,10 @@
           <div class="done-title">참 잘했어요!</div>
           <div class="done-sub">기사를 꼼꼼히 읽고 퀴즈까지 완성했네요.</div>
           <button class="retry-btn show" onclick="renderQuiz()">🔄 다시 풀어보기</button>
+          <div class="related-cta" style="background:linear-gradient(120deg, var(--coral-soft), var(--mint-soft));">
+            <div class="related-cta-text">💌 매주 새 기사가 궁금하다면?</div>
+            <a class="related-cta-btn" href="https://newscool.co/membership/" target="_blank" rel="noopener">뉴스쿨 구독하고 새 기사 받기</a>
+          </div>
         </div>
       </div>
     </div>
@@ -559,6 +589,13 @@ const dict = {
 const articles = [
   {
     id: "gaitana",
+    vocab: [
+      {"word": "아바타", "meaning": "인터넷이나 가상 세계에서 나를 대신하는 캐릭터.", "hanja": null},
+      {"word": "양원제", "meaning": "의회를 상원과 하원 둘로 나누어 운영하는 제도.", "hanja": "兩(두 량) + 院(집 원) + 制(법 제) → '두 개의 의회로 된 제도'"},
+      {"word": "상원", "meaning": "양원제에서 국가 전체 이익을 대표하는 의회.", "hanja": "上(위 상) + 院(집 원)"},
+      {"word": "하원", "meaning": "양원제에서 국민의 뜻을 더 직접 반영하는 의회.", "hanja": "下(아래 하) + 院(집 원)"},
+      {"word": "견제", "meaning": "한쪽이 지나치게 힘을 갖지 못하도록 서로 감시하는 것.", "hanja": "牽(끌 견) + 制(절제할 제) → '끌어당겨 절제시킴'"}
+    ],
     type: "full",
     keyword: "아바타",
     category: "세계",
@@ -603,6 +640,13 @@ const articles = [
   },
   {
     id: "birthrate",
+    vocab: [
+      {"word": "반등", "meaning": "떨어지던 것이 다시 오르는 현상.", "hanja": "反(돌이킬 반) + 騰(오를 등) → '돌이켜 오름'"},
+      {"word": "출생아", "meaning": "새로 태어난 아기.", "hanja": "出(날 출) + 生(날 생) + 兒(아이 아)"},
+      {"word": "합계출산율", "meaning": "여성 1명이 평생 낳을 것으로 예상되는 자녀 수.", "hanja": "合(합할 합) + 計(셀 계) + 出(날 출) + 産(낳을 산) + 率(비율 율)"},
+      {"word": "저출생", "meaning": "태어나는 아기 수가 매우 적은 현상.", "hanja": "低(낮을 저) + 出(날 출) + 生(날 생)"},
+      {"word": "인구", "meaning": "일정 지역에 사는 사람의 수.", "hanja": "人(사람 인) + 口(입 구) → '사람의 수를 입으로 셈'"}
+    ],
     type: "full",
     keyword: "반등",
     category: "사회",
@@ -646,6 +690,13 @@ const articles = [
   },
   {
     id: "esportsyouth",
+    vocab: [
+      {"word": "e스포츠", "meaning": "전자 기기로 사람끼리 겨루는 공식 경기.", "hanja": null},
+      {"word": "정식종목", "meaning": "공식적으로 인정된 대회 종목.", "hanja": "正(바를 정) + 式(법 식) + 種(씨 종) + 目(항목 목)"},
+      {"word": "소년체전", "meaning": "초·중학생이 참가하는 우리나라 최대 유소년 스포츠 대회.", "hanja": "少(적을 소) + 年(해 년) + 體(몸 체) + 典(법 전)"},
+      {"word": "순발력", "meaning": "순간적으로 빠르게 반응하는 힘.", "hanja": "瞬(눈깜짝일 순) + 發(필 발) + 力(힘 력) → '눈 깜짝할 새에 내는 힘'"},
+      {"word": "협동심", "meaning": "함께 힘을 모으려는 마음.", "hanja": "協(화합할 협) + 同(한가지 동) + 心(마음 심)"}
+    ],
     type: "full",
     keyword: "e스포츠",
     category: "스포츠",
@@ -690,6 +741,13 @@ const articles = [
   },
   {
     id: "aimanufacture",
+    vocab: [
+      {"word": "제조업", "meaning": "재료나 부품으로 물건을 만들어 파는 산업.", "hanja": "製(지을 제) + 造(지을 조) + 業(업 업)"},
+      {"word": "자동화", "meaning": "기계가 사람 개입 없이 스스로 작업하는 것.", "hanja": "自(스스로 자) + 動(움직일 동) + 化(될 화)"},
+      {"word": "생산가능인구", "meaning": "일할 수 있는 나이(보통 15~64세)의 인구.", "hanja": "生(날 생) + 産(낳을 산) + 可(옳을 가) + 能(능할 능) + 人(사람 인) + 口(입 구)"},
+      {"word": "유탕기", "meaning": "기름에 음식을 튀기는 기계.", "hanja": "油(기름 유) + 湯(끓일 탕) + 機(틀 기)"},
+      {"word": "안전", "meaning": "위험이 없는 상태.", "hanja": "安(편안 안) + 全(온전 전)"}
+    ],
     type: "full",
     keyword: "제조업",
     category: "경제",
@@ -733,6 +791,13 @@ const articles = [
   },
   {
     id: "tidetime",
+    vocab: [
+      {"word": "무형유산", "meaning": "형태는 없지만 보존할 가치가 있는 전통 지식·기술.", "hanja": "無(없을 무) + 形(모양 형) + 遺(남길 유) + 産(낳을 산) → '형태 없이 남겨진 자산'"},
+      {"word": "전승공동체", "meaning": "특정 개인이 아니라 공동체 전체가 지식을 전해온 경우를 가리키는 말.", "hanja": "傳(전할 전) + 承(이을 승) + 共(함께 공) + 同(한가지 동) + 體(몸 체)"},
+      {"word": "간척", "meaning": "바다나 갯벌을 막아 육지로 만드는 것.", "hanja": "干(막을 간) + 拓(넓힐 척) → '막아서 넓힘'"},
+      {"word": "순환", "meaning": "일정한 과정을 되풀이하며 도는 것.", "hanja": "循(돌 순) + 環(고리 환)"},
+      {"word": "관측", "meaning": "자연 현상을 자세히 살펴보는 것.", "hanja": "觀(볼 관) + 測(잴 측)"}
+    ],
     type: "full",
     keyword: "물때",
     category: "문화",
@@ -780,6 +845,13 @@ const articles = [
   },
   {
     id: "earthprize",
+    vocab: [
+      {"word": "비영리단체", "meaning": "이익이 아니라 사회에 도움되는 일을 하는 단체.", "hanja": "非(아닐 비) + 營(경영할 영) + 利(이로울 리) + 團(모일 단) + 體(몸 체) → '이익을 추구하지 않는 단체'"},
+      {"word": "발명품", "meaning": "새로 만들어낸 물건이나 장치.", "hanja": "發(필 발) + 明(밝을 명) + 品(물건 품) → '밝혀 만들어낸 물건'"},
+      {"word": "재활용", "meaning": "쓰고 버린 것을 다시 쓰는 것.", "hanja": "再(다시 재) + 活(살 활) + 用(쓸 용)"},
+      {"word": "오염물질", "meaning": "환경을 더럽히는 물질.", "hanja": "汚(더러울 오) + 染(물들 염) + 物(물건 물) + 質(바탕 질)"},
+      {"word": "생물다양성", "meaning": "여러 생물종이 다양하게 존재하는 정도.", "hanja": "生(날 생) + 物(물건 물) + 多(많을 다) + 樣(모양 양) + 性(성품 성)"}
+    ],
     type: "full",
     keyword: "비영리단체",
     category: "과학",
@@ -823,6 +895,13 @@ const articles = [
   },
   {
     id: "highjump",
+    vocab: [
+      {"word": "도약", "meaning": "몸을 위로 힘차게 뛰어오르는 것.", "hanja": "跳(뛸 도) + 躍(뛸 약)"},
+      {"word": "균형감각", "meaning": "몸의 균형을 잡는 감각.", "hanja": "均(고를 균) + 衡(저울대 형) + 感(느낄 감) + 覺(깨달을 각) → '고르게 유지하는 느낌'"},
+      {"word": "배면", "meaning": "등이 향하는 쪽의 면.", "hanja": "背(등 배) + 面(낯 면)"},
+      {"word": "중력", "meaning": "지구가 물체를 끌어당기는 힘.", "hanja": "重(무거울 중) + 力(힘 력)"},
+      {"word": "불모지", "meaning": "아직 발전하지 못한, 척박한 분야를 비유하는 말.", "hanja": "不(아닐 불) + 毛(터럭 모) + 地(땅 지) → '풀 한 포기 안 자라는 땅'"}
+    ],
     type: "full",
     keyword: "높이뛰기",
     category: "스포츠",
@@ -866,6 +945,13 @@ const articles = [
   },
   {
     id: "santa",
+    vocab: [
+      {"word": "적외선", "meaning": "눈에 보이지 않지만 열을 내는 물체에서 나오는 빛.", "hanja": "赤(붉을 적) + 外(바깥 외) + 線(줄 선) → '붉은빛 바깥의 광선'"},
+      {"word": "추적", "meaning": "목표물의 움직임을 뒤쫓아 살피는 것.", "hanja": "追(쫓을 추) + 跡(자취 적) → '자취를 쫓음'"},
+      {"word": "위성", "meaning": "행성 둘레를 도는 인공 또는 자연 물체.", "hanja": "衛(지킬 위) + 星(별 성) → '지키는 별'"},
+      {"word": "경로", "meaning": "지나가는 길이나 방향.", "hanja": "經(지날 경) + 路(길 로)"},
+      {"word": "실시간", "meaning": "현재 시간과 똑같이 즉시 이루어지는.", "hanja": "實(실제 실) + 時(때 시) + 間(사이 간) → '실제 시간'"}
+    ],
     type: "full",
     keyword: "산타클로스",
     category: "세계",
@@ -910,6 +996,13 @@ const articles = [
   },
   {
     id: "parisagreement",
+    vocab: [
+      {"word": "협약", "meaning": "여러 나라나 단체가 함께 맺은 약속.", "hanja": "協(화합할 협) + 約(맺을 약) → '화합하여 맺음'"},
+      {"word": "산업화", "meaning": "산업이 사회의 중심이 되는 과정.", "hanja": "産(낳을 산) + 業(업 업) + 化(될 화)"},
+      {"word": "개발도상국", "meaning": "산업과 경제가 한창 발전하고 있는 나라.", "hanja": "開(열 개) + 發(필 발) + 途(길 도) + 上(위 상) + 國(나라 국) → '개발이 진행 중인 나라'"},
+      {"word": "감축", "meaning": "덜어서 줄이는 것.", "hanja": "減(덜 감) + 縮(줄일 축)"},
+      {"word": "파리협약", "meaning": "기후변화를 막기 위해 196개국이 맺은 국제 약속.", "hanja": "'파리'는 프랑스 도시 이름의 음역, 協(화합할 협) + 約(맺을 약)"}
+    ],
     type: "full",
     keyword: "파리협약",
     category: "과학",
@@ -954,6 +1047,13 @@ const articles = [
   },
   {
     id: "risingsun",
+    vocab: [
+      {"word": "욱일기", "meaning": "일본이 아시아 침략 시기에 군기로 쓴 깃발.", "hanja": "旭(아침해 욱) + 日(해 일) + 旗(기 기) → '떠오르는 해 깃발'"},
+      {"word": "군국주의", "meaning": "무력으로 다른 나라를 지배하려는 사상.", "hanja": "軍(군사 군) + 國(나라 국) + 主(주인 주) + 義(옳을 의)"},
+      {"word": "침략", "meaning": "남의 나라를 무력으로 쳐들어가 빼앗는 것.", "hanja": "侵(침노할 침) + 略(노략질할 략)"},
+      {"word": "제국주의", "meaning": "다른 나라를 정복해 지배 영역을 넓히려는 사상.", "hanja": "帝(임금 제) + 國(나라 국) + 主(주인 주) + 義(옳을 의)"},
+      {"word": "상징", "meaning": "어떤 뜻을 대표해서 나타내는 표시.", "hanja": "象(모양 상) + 徵(부를 징) → '모양으로 부름'"}
+    ],
     type: "full",
     keyword: "군국주의",
     category: "세계",
@@ -998,6 +1098,13 @@ const articles = [
   },
   {
     id: "schoolviolence",
+    vocab: [
+      {"word": "학교폭력", "meaning": "학생들 사이에서 학교 안팎에 일어나는 폭력.", "hanja": "學(배울 학) + 校(학교 교) + 暴(사나울 폭) + 力(힘 력)"},
+      {"word": "태형", "meaning": "회초리나 몽둥이로 몸을 때리는 형벌.", "hanja": "笞(볼기칠 태) + 刑(형벌 형)"},
+      {"word": "방관자", "meaning": "일이 일어나는 걸 보면서도 나서지 않는 사람.", "hanja": "傍(곁 방) + 觀(볼 관) + 者(사람 자) → '곁에서 보기만 하는 사람'"},
+      {"word": "인권", "meaning": "사람이라면 누구나 가지는 기본적인 권리.", "hanja": "人(사람 인) + 權(권세 권)"},
+      {"word": "징계", "meaning": "잘못에 대해 책임을 물어 벌을 내리는 것.", "hanja": "懲(혼낼 징) + 戒(경계할 계) → '혼내어 경계함'"}
+    ],
     relatedIssue: { title: "학교폭력에 분노하는 대한민국 (제42호)", url: "https://www.newscool.co/article-school_bullying/" },
     relatedIssue2: { title: "\"학폭 가해자 입학 금지\" 문 걸어잠그는 대학들", url: "https://www.newscool.co/cooleygo-disadvantageforschoolviolence/" },
     type: "full",
@@ -1048,6 +1155,13 @@ const articles = [
   },
   {
     id: "marathon",
+    vocab: [
+      {"word": "완주", "meaning": "정해진 거리를 끝까지 다 달리는 것.", "hanja": "完(완전할 완) + 走(달릴 주) → '완전히 다 달림'"},
+      {"word": "기록", "meaning": "운동 경기에서 세운 성적이나 수치.", "hanja": "記(기록할 기) + 錄(기록할 록)"},
+      {"word": "한계", "meaning": "더는 넘을 수 없는 정해진 범위나 경계.", "hanja": "限(한정할 한) + 界(경계 계) → '한정된 경계'"},
+      {"word": "극한", "meaning": "더 이상 갈 수 없는 맨 끝의 상태.", "hanja": "極(다할 극) + 限(한할 한) → '다하여 한정됨'"},
+      {"word": "서브2", "meaning": "마라톤을 2시간 안에 완주하는 것을 가리키는 말.", "hanja": null}
+    ],
     type: "full",
     keyword: "마라톤",
     category: "스포츠",
@@ -1092,6 +1206,13 @@ const articles = [
   },
   {
     id: "laborday",
+    vocab: [
+      {"word": "노동절", "meaning": "노동자의 권리를 기념하는 날.", "hanja": "勞(일할 로) + 動(움직일 동) + 節(명절 절)"},
+      {"word": "법정공휴일", "meaning": "나라가 법으로 정한, 누구나 쉬는 공식 휴일.", "hanja": "法(법 법) + 定(정할 정) + 公(공평할 공) + 休(쉴 휴) + 日(날 일)"},
+      {"word": "유급휴일", "meaning": "쉬어도 월급이 나오는 날.", "hanja": "有(있을 유) + 給(줄 급) + 休(쉴 휴) + 日(날 일) → '급여가 있는 휴일'"},
+      {"word": "근로", "meaning": "부지런히 일하는 것.", "hanja": "勤(부지런할 근) + 勞(일할 로)"},
+      {"word": "온실가스", "meaning": "지구를 감싸 열을 가두는 가스.", "hanja": "溫(따뜻할 온) + 室(집 실) → '따뜻한 집처럼 열을 가둠'"}
+    ],
     type: "full",
     keyword: "법정공휴일",
     category: "사회",
@@ -1140,6 +1261,13 @@ const articles = [
   },
   {
     id: "kpopdemon",
+    vocab: [
+      {"word": "아카데미", "meaning": "미국의 대표적인 영화 시상식('오스카'라고도 함).", "hanja": null},
+      {"word": "장편", "meaning": "긴 분량으로 만들어진 작품.", "hanja": "長(길 장) + 篇(책 편)"},
+      {"word": "감독", "meaning": "영화나 드라마의 제작 전체를 지휘하는 사람.", "hanja": "監(볼 감) + 督(감독할 독) → '살펴보며 다스림'"},
+      {"word": "시상식", "meaning": "상을 주는 공식 행사.", "hanja": "施(베풀 시) + 賞(상줄 상) + 式(법 식)"},
+      {"word": "주류", "meaning": "사회에서 중심이 되는 큰 흐름.", "hanja": "主(주인 주) + 流(흐를 류) → '주된 흐름'"}
+    ],
     type: "full",
     keyword: "아카데미",
     category: "문화",
@@ -1184,6 +1312,13 @@ const articles = [
   },
   {
     id: "bci",
+    vocab: [
+      {"word": "BCI", "meaning": "'뇌-컴퓨터 인터페이스'의 줄임말. 뇌 신호로 기계를 움직이는 기술.", "hanja": null},
+      {"word": "침습형", "meaning": "몸속에 직접 장치를 넣는 방식.", "hanja": "侵(침노할 침) + 襲(엄습할 습) + 型(모형 형) → '몸속으로 침범해 들어가는 형태'"},
+      {"word": "경막", "meaning": "두개골과 뇌 사이의 얇은 막.", "hanja": "硬(굳을 경) + 膜(막 막) → '단단한 막'"},
+      {"word": "재활", "meaning": "다치거나 아픈 몸의 기능을 다시 회복시키는 것.", "hanja": "再(다시 재) + 活(살 활) → '다시 살아나게 함'"},
+      {"word": "신경", "meaning": "뇌와 몸 사이에서 신호를 전달하는 조직.", "hanja": "神(정신 신) + 經(줄기 경)"}
+    ],
     type: "full",
     keyword: "BCI",
     category: "과학",
@@ -1232,6 +1367,13 @@ const articles = [
   },
   {
     id: "nepalflood",
+    vocab: [
+      {"word": "빙하", "meaning": "눈이 오래 쌓여 다져진 거대한 얼음덩어리.", "hanja": "氷(얼음 빙) + 河(물 하) → '얼음으로 된 강'"},
+      {"word": "붕괴", "meaning": "무너지고 무너져 부서지는 것.", "hanja": "崩(무너질 붕) + 壞(무너질 괴)"},
+      {"word": "산사태", "meaning": "산의 흙과 바위가 무너져 내리는 현상.", "hanja": "山(메 산) + 沙(모래 사) + 汰(씻길 태) → '산의 모래가 씻겨 내림'"},
+      {"word": "기후변화", "meaning": "오랜 기간에 걸친 지구 기후의 변화.", "hanja": "氣(기운 기) + 候(기후 후) + 變(변할 변) + 化(될 화)"},
+      {"word": "조기경보시스템", "meaning": "위험을 미리 알아채 빠르게 알려주는 체계.", "hanja": "早(이를 조) + 期(기약할 기) + 警(경계할 경) + 報(알릴 보) → '이른 시기에 알리는 경계'"}
+    ],
     think: [
       "오늘 기사의 핵심 내용은 무엇일까?",
       "이번 네팔 홍수는 어떻게 시작됐을까?",
@@ -1276,6 +1418,13 @@ const articles = [
   },
   {
     id: "macro",
+    vocab: [
+      {"word": "암표", "meaning": "정가보다 비싸게 몰래 되파는 표.", "hanja": "暗(어두울 암) + 票(표 표) → '어둠 속의 표'라는 뜻"},
+      {"word": "예매", "meaning": "물건이나 표를 정해진 날짜 전에 미리 사는 것.", "hanja": "豫(미리 예) + 買(살 매) → '미리 사다'"},
+      {"word": "기획사", "meaning": "공연이나 활동을 계획하고 관리하는 회사.", "hanja": "企(꾀할 기) + 劃(그을 획) + 社(모일 사) → '일을 계획하는 모임'"},
+      {"word": "재판매", "meaning": "이미 산 물건을 다른 사람에게 다시 파는 것.", "hanja": "再(다시 재) + 販(팔 판) + 賣(팔 매) → '다시 팔다'"},
+      {"word": "포상금", "meaning": "잘한 일이나 신고에 대한 대가로 주는 돈.", "hanja": "褒(기릴 포) + 賞(상줄 상) + 金(쇠/돈 금) → '칭찬하며 주는 돈'"}
+    ],
     relatedIssue: { title: "세븐틴 콘서트 가려면 개인정보를 주세요!", url: "https://www.newscool.co/cooleygo-id/" },
     relatedIssue2: { title: "보랏빛으로 물드는 서울의 밤...BTS노믹스가 뜬다", url: "https://www.newscool.co/article-btsconcert/" },
     type: "full",
@@ -1323,6 +1472,13 @@ const articles = [
   },
   {
     id: "addiction",
+    vocab: [
+      {"word": "중독", "meaning": "어떤 것에 지나치게 빠져 스스로 조절하기 어려운 상태.", "hanja": "中(맞을 중) + 毒(독 독) → '독에 맞다'"},
+      {"word": "도박", "meaning": "돈을 걸고 우연한 결과를 맞히는 행위.", "hanja": "賭(내기 도) + 博(노름 박) → '내기를 거는 노름'"},
+      {"word": "자진신고", "meaning": "누가 시키지 않아도 스스로 나서서 알리는 것.", "hanja": "自(스스로 자) + 進(나아갈 진) + 申(펼 신) + 告(알릴 고) → '스스로 나서서 알림'"},
+      {"word": "정신건강의학과", "meaning": "마음의 어려움을 진료하는 병원 진료과.", "hanja": "精(정할 정) + 神(정신 신) + 健(굳셀 건) + 康(편안 강) + 醫(의원 의) + 學(배울 학) + 科(과목 과)"},
+      {"word": "상담", "meaning": "전문가와 이야기를 나누며 문제를 해결해가는 것.", "hanja": "相(서로 상) + 談(말씀 담) → '서로 이야기함'"}
+    ],
     relatedIssue: { title: "우리는 어쩌다 유튜브에 중독된 걸까?", url: "https://newscool.co/tv-youtube/" },
     relatedIssue2: { title: "우리가 운동장에서 뛰어 놀 때도 '도파민'이 나온다?!", url: "https://www.newscool.co/tv-ncp-playground/" },
     type: "full",
@@ -1368,6 +1524,13 @@ const articles = [
   },
   {
     id: "photojournalism",
+    vocab: [
+      {"word": "보도", "meaning": "새로운 소식을 사람들에게 알리는 것.", "hanja": "報(알릴 보) + 道(길 도) → '소식을 알리는 길'"},
+      {"word": "신문윤리위원회", "meaning": "신문사가 윤리를 잘 지키는지 살피는 단체.", "hanja": "新(새 신) + 聞(들을 문) + 倫(인륜 윤) + 理(다스릴 리) + 委(맡길 위) + 員(인원 원) + 會(모일 회)"},
+      {"word": "보도준칙", "meaning": "기자와 신문사가 지켜야 할 취재·보도 규칙.", "hanja": "報(알릴 보) + 道(길 도) + 準(준할 준) + 則(법칙 칙) → '보도할 때 지키는 법칙'"},
+      {"word": "선정보도", "meaning": "관심을 끌기 위해 지나치게 자극적으로 꾸민 보도.", "hanja": "煽(부추길 선) + 情(뜻 정) + 報(알릴 보) + 道(길 도) → '감정을 부추기는 보도'"},
+      {"word": "혼동", "meaning": "구별하지 못하고 뒤섞어 착각하는 것.", "hanja": "混(섞을 혼) + 同(한가지 동) → '뒤섞여 같아짐'"}
+    ],
     relatedIssue: { title: "전쟁 무기가 된 AI (이번 주 뉴스쿨 제188호)", url: "https://www.newscool.co/article-aiwar/" },
     think: [
       "오늘 기사의 핵심 내용은 무엇일까?",
@@ -1419,6 +1582,13 @@ const articles = [
   },
   {
     id: "meteor",
+    vocab: [
+      {"word": "개기일식", "meaning": "달이 태양을 완전히 가려 캄캄해지는 현상.", "hanja": "皆(다 개) + 旣(이미 기) + 日(해 일) + 蝕(좀먹을 식) → '해가 완전히 좀먹힌 듯 가려짐'"},
+      {"word": "유성우", "meaning": "별똥별이 비처럼 많이 쏟아지는 현상.", "hanja": "流(흐를 류) + 星(별 성) + 雨(비 우) → '별이 비처럼 흐름'"},
+      {"word": "혜성", "meaning": "얼음과 먼지로 된 천체로, 태양에 가까워지면 꼬리가 생김.", "hanja": "彗(빗자루 혜) + 星(별 성) → '빗자루 모양의 별'"},
+      {"word": "운석", "meaning": "별똥별 중 다 타지 않고 땅까지 떨어진 돌덩이.", "hanja": "隕(떨어질 운) + 石(돌 석) → '떨어진 돌'"},
+      {"word": "관측", "meaning": "자연 현상을 눈이나 기계로 자세히 살펴보는 것.", "hanja": "觀(볼 관) + 測(잴 측) → '보고 재다'"}
+    ],
     relatedIssue: { title: "우주망원경 구하기 대작전이 시작됐다 (이번 주 뉴스쿨 제206호)", url: "https://www.newscool.co/article-linkandswift/" },
     relatedIssue2: { title: "3월 3일 밤 하늘에서 우주쇼가 펼쳐진다!", url: "https://www.newscool.co/cooleygo-eclipse/" },
     type: "full",
@@ -1468,6 +1638,13 @@ const articles = [
   },
   {
     id: "smartfarm",
+    vocab: [
+      {"word": "스마트팜", "meaning": "IT 기술로 작물이 자라는 환경을 자동 관리하는 농장.", "hanja": null},
+      {"word": "노지", "meaning": "비닐하우스 없이 그대로 드러난 땅에서 짓는 농사.", "hanja": "露(드러날 로) + 地(땅 지) → '드러난 땅'"},
+      {"word": "차광막", "meaning": "너무 강한 햇빛을 막아주는 그늘막.", "hanja": "遮(막을 차) + 光(빛 광) + 幕(막 막) → '빛을 막는 막'"},
+      {"word": "식물공장", "meaning": "햇빛 없이 LED와 영양액만으로 작물을 키우는 시설.", "hanja": "植(심을 식) + 物(물건 물) + 工(장인 공) + 場(마당 장)"},
+      {"word": "재배", "meaning": "식물을 심어서 가꾸어 기르는 것.", "hanja": "栽(심을 재) + 培(북돋울 배) → '심고 북돋아 기름'"}
+    ],
     relatedIssue: { title: "최악의 가뭄에 강릉이 메마른다 (이번 주 뉴스쿨 제165호)", url: "https://www.newscool.co/article-drought/" },
     relatedIssue2: { title: "국민 절반이 이민 신청... 투발루에 무슨 일이?", url: "https://www.newscool.co/cooleygo-tuvalu/" },
     think: [
@@ -1515,6 +1692,13 @@ const articles = [
   },
   {
     id: "historyedu",
+    vocab: [
+      {"word": "민주화운동", "meaning": "국민이 나라의 주인이 되는 정치를 요구한 사회 운동.", "hanja": "民(백성 민) + 主(주인 주) + 化(될 화) + 運(움직일 운) + 動(움직일 동) → '백성이 주인이 되게 하는 움직임'"},
+      {"word": "진상규명", "meaning": "감춰진 사건의 참된 사실을 밝혀내는 것.", "hanja": "眞(참 진) + 相(모습 상) + 糾(얽힐 규) + 明(밝을 명) → '참모습을 캐내어 밝힘'"},
+      {"word": "혐오 표현", "meaning": "특정 집단을 이유 없이 깎아내리거나 모욕하는 말.", "hanja": "嫌(싫어할 혐) + 惡(미워할 오) → '싫어하고 미워함'"},
+      {"word": "조롱", "meaning": "남을 우습게 여기며 놀리는 것.", "hanja": "嘲(비웃을 조) + 弄(희롱할 롱) → '비웃으며 희롱함'"},
+      {"word": "항의", "meaning": "부당하다고 생각해 반대의 뜻을 밝히는 것.", "hanja": "抗(맞설 항) + 議(의논할 의) → '맞서서 따짐'"}
+    ],
     relatedIssue: { title: "일본은 왜 자꾸 독도를 탐낼까?", url: "https://www.newscool.co/cooleygo-dokdo/" },
     relatedIssue2: { title: "우리가 기억해야 할 그날의 광주 이야기 (제98호)", url: "https://newscool.co/shop-518gwangju/" },
     think: [
@@ -1564,6 +1748,13 @@ const articles = [
   },
   {
     id: "insects",
+    vocab: [
+      {"word": "곤충", "meaning": "다리가 6개이고 머리·가슴·배로 나뉜 동물.", "hanja": "昆(벌레 곤) + 蟲(벌레 충)"},
+      {"word": "생물다양성", "meaning": "여러 생물종이 다양하게 존재하는 정도.", "hanja": "生(날 생) + 物(물건 물) + 多(많을 다) + 樣(모양 양) + 性(성품 성) → '생물의 모양이 많음'"},
+      {"word": "완전변태", "meaning": "알-애벌레-번데기-성충으로 자라며 모습이 완전히 바뀌는 성장 방식.", "hanja": "完(완전할 완) + 全(온전 전) + 變(변할 변) + 態(모습 태) → '모습이 완전히 변함'"},
+      {"word": "멸종", "meaning": "한 생물 종이 지구상에서 완전히 사라지는 것.", "hanja": "滅(멸할 멸) + 種(씨 종) → '씨가 없어짐'"},
+      {"word": "추정", "meaning": "정확히 알 수 없어 짐작하여 판단하는 것.", "hanja": "推(밀 추) + 定(정할 정) → '미루어 정함'"}
+    ],
     relatedIssue: { title: "꿀벌이 사라졌다", url: "https://newscool.co/article-honeybee/" },
     relatedIssue2: { title: "여름의 불청객, 러브버그가 나타났다", url: "https://newscool.co/cooleygo-bugs/" },
     think: [
@@ -1612,6 +1803,13 @@ const articles = [
   },
   {
     id: "snackprice",
+    vocab: [
+      {"word": "물가", "meaning": "물건과 서비스 가격의 전반적인 수준.", "hanja": "物(물건 물) + 價(값 가)"},
+      {"word": "원료", "meaning": "물건을 만드는 데 쓰이는 재료.", "hanja": "原(근원 원) + 料(재료 료) → '근본이 되는 재료'"},
+      {"word": "인건비", "meaning": "일하는 사람에게 주는 돈.", "hanja": "人(사람 인) + 件(사건/일 건) + 費(쓸 비) → '사람 일에 드는 비용'"},
+      {"word": "환율", "meaning": "우리나라 돈과 다른 나라 돈을 바꾸는 비율.", "hanja": "換(바꿀 환) + 率(비율 율) → '바꾸는 비율'"},
+      {"word": "안정", "meaning": "크게 흔들리지 않고 일정하게 유지되는 상태.", "hanja": "安(편안 안) + 定(정할 정) → '편안히 정해짐'"}
+    ],
     relatedIssue: { title: "빼빼로, 6월부터 1800원이에요", url: "https://www.newscool.co/cooleygo-pepero/" },
     relatedIssue2: { title: "치솟은 유가에 경제가 '휘청' (제189호)", url: "https://www.newscool.co/article-oilshock/" },
     think: [
@@ -1656,6 +1854,13 @@ const articles = [
   },
   {
     id: "spacex",
+    vocab: [
+      {"word": "상장", "meaning": "회사 주식을 시장에 내놓아 누구나 사고팔게 하는 것.", "hanja": "上(오를 상) + 場(마당 장) → '시장에 올림'"},
+      {"word": "재사용", "meaning": "한 번 쓴 것을 버리지 않고 다시 쓰는 것.", "hanja": "再(다시 재) + 使(부릴 사) + 用(쓸 용) → '다시 부려 씀'"},
+      {"word": "주주", "meaning": "회사의 주식을 가진, 회사의 작은 주인.", "hanja": "株(그루 주) + 主(주인 주) → '주식의 주인'"},
+      {"word": "저궤도", "meaning": "지구에서 비교적 가까운 우주 공간의 궤도.", "hanja": "低(낮을 저) + 軌(바퀴자국 궤) + 道(길 도) → '낮은 궤도'"},
+      {"word": "발사", "meaning": "로켓이나 미사일 등을 쏘아 올리는 것.", "hanja": "發(필 발) + 射(쏠 사) → '쏘아 냄'"}
+    ],
     relatedIssue: { title: "달을 잡아라!...더 치열해진 '문 프로젝트'", url: "https://newscool.co/article-apollo11/" },
     think: [
       "오늘 기사의 핵심 내용은 무엇일까?",
@@ -1703,6 +1908,13 @@ const articles = [
   },
   {
     id: "smartfree",
+    vocab: [
+      {"word": "스크린타임", "meaning": "스마트폰, TV 같은 화면을 보는 시간.", "hanja": null},
+      {"word": "능동적", "meaning": "스스로 나서서 움직이는.", "hanja": "能(능할 능) + 動(움직일 동) + 的(과녁 적) → '능히 움직이는'"},
+      {"word": "수동적", "meaning": "남이 시켜서, 받아서 움직이는.", "hanja": "受(받을 수) + 動(움직일 동) + 的(과녁 적) → '받아서 움직이는'"},
+      {"word": "습관", "meaning": "오랫동안 되풀이해서 몸에 밴 행동.", "hanja": "習(익힐 습) + 慣(버릇 관) → '익혀서 든 버릇'"},
+      {"word": "자제", "meaning": "감정이나 욕구를 스스로 억누르는 것.", "hanja": "自(스스로 자) + 制(절제할 제) → '스스로 절제함'"}
+    ],
     think: [
       "오늘 기사의 핵심 내용은 무엇일까?",
       "부모님이 나에게만 스마트폰을 줄이라고 하실 때 어떤 생각이 들어?",
@@ -1885,6 +2097,18 @@ function openArticle(id){
       <div class="article-sub">뉴스 키워드: ${a.keyword}</div>
       <div class="hint-bar">👆 색칠된 단어를 톡 누르면 뜻을 알려줘요!</div>
       ${a.body}
+      ${a.vocab ? `
+        <div class="qa-title" style="margin-top:26px;">📚 오늘의 어휘</div>
+        <div class="vocab-list">
+          ${a.vocab.map(v => `
+            <div class="vocab-item">
+              <div class="vocab-word">${v.word}</div>
+              <div class="vocab-meaning">${v.meaning}</div>
+              ${v.hanja ? `<span class="vocab-hanja">${v.hanja}</span>` : ''}
+            </div>
+          `).join('')}
+        </div>
+      ` : ''}
       <div class="qa-title" style="margin-top:26px;">✏️ ${a.summaryTitle}</div>
       ${a.summary}
       <div class="qa-title">🙋 뉴스 Q&A</div>
@@ -1911,6 +2135,10 @@ function openArticle(id){
           `).join('')}
         </div>
       ` : ''}
+      <div class="related-cta" style="margin-top:16px; background:linear-gradient(120deg, var(--coral-soft), var(--mint-soft));">
+        <div class="related-cta-text">💌 매주 새 기사가 궁금하다면?</div>
+        <a class="related-cta-btn" href="https://newscool.co/membership/" target="_blank" rel="noopener">뉴스쿨 구독하고 새 기사 받기</a>
+      </div>
     `;
   }
   bindWordTaps(readCard);
